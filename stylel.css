@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  max-width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  grid-template-rows: 1fr 4fr 1.2fr 1.2fr;
+  grid-template-areas:
+    "logo    logo    header"
+    "Main    Main    img"
+    "Quotes  Quotes  img"
+    "btn1    btn2    img";
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: black;
+  line-height: 28px;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.logo {
+  grid-area: logo;
+  background-color: #c6d8df;
+  display: flex;
+  align-items: center;
+  padding-left: 125px;
+}
+.logo a {
+  color: green;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.Main {
+  grid-area: Main;
+  background-color: white;
+  padding: 0 125px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.Main h1 {
+  font-size: 36px;
+  line-height: 49px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  max-width: 290px;
+  animation-delay:0.5s; 
+}
+.Main p{
+  animation-delay:1s; 
+}
+
+.pop-in{
+  animation: popIn 3s cubic-bezier(0, -0.04, 0.32,1.28)forwards;
+  opacity: 0;
+  
+}
+@keyframes popIn{
+  from{ 
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8);
+
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
+  
+}
+.Quotes {
+  grid-area: Quotes;
+  background-color: #c6d8df;
+  display: flex;
+  align-items: center;
+  padding-left: 125px;
+}
+.Quotes h2 {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: bold;
+}
+
+.btn1 {
+  grid-area: btn1;
+  background-color: rgb(56, 143, 56);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn a {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+}
+.btn{
+  transition: background-color .2s ease-in-out;
+}
+.btn:hover{
+  background-color: #738684;
+}
+.btn2 {
+  grid-area: btn2;
+  background-color: rgb(76, 189, 53);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  grid-area: header;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30px;
+}
+header ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+header ul li a {
+  padding: 30px 15px;
+  font-weight: 700;
+  color: black;
+  transition: color .2s ease-in;
+}
+.header ul li a:hover{
+  color: green;
+}
+
+.img {
+  grid-area: img;
+  background-color: lightsalmon;
+  overflow: hidden;
+  background: url(./images/oleg-demakov-jVsFoS586aI-unsplash.jpg) no-repeat top
+    center;
+  background-size: cover;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}
+.slide-in{
+  animation: slideIn 2s ease  1s forwards;
+  opacity: 0;
+
+}
+@keyframes slideIn {
+  0%{
+    opacity: 0;
+    transform: translateX(150px)  skewY(20deg);
+  }
+  100%{ 
+    opacity: 1;
+
+  } 
+}
+.slide{
+
+  animation: slide 2s  ease forwards;
+  opacity: 0;
+} 
+@keyframes slide{  
+  0%{
+    opacity: 0; 
+    transform: translateY(50px) scale(0.8);  
+  
+  }
+  100%{
+    opacity: 1;
+
+  }
+}
+ 
+@media (max-width: 767px) {
+  .container {
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "logo    logo"
+      "header header"
+      "img      img"
+      "Main    Main"
+      "Quotes  Quotes"
+      "btn1    btn2";
+    grid-template-rows: 100px 50px 50vh auto auto 70px;
+  }
+  .logo {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .Main {
+    padding: 50px 24px;
+  }
+  .Main h1 {
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .Quotes {
+    padding: 20px 28px;
+  }
+  .Quotes h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .header {
+    padding-right: 0;
+    background: #738684;
+    justify-content: center;
+  }
+  .btn a {
+    font-size: 18px;
+  }
+  .header ul li a {
+    padding: 30px 30px;
+  }
+}
+
+@media(min-width:768px) and (max-width:950px){
+  .logo, .Quotes,.Main{
+    padding-left: 25px;
+  }
+  
+}
+
